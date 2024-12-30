@@ -2,7 +2,7 @@ name: 2nd Main Workflow
 
 on:
   push:
-    branches: ["Main"]
+    branches: ["main"]
 
 jobs:
   Printing_a_message:
