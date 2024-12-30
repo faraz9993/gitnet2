@@ -41,16 +41,7 @@ jobs:
   #     pass: ${{ secrets.pass }}
   #     req: ${{ secrets.req }}
   manual-approval:
-    name: Manual Approval
-    uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main    
+    name: Manual Approval    
     permissions:
       issues: write
-    steps:
-      - name: Await Manual Approval
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ secrets.GIHTUB_TOKEN }}
-          approvers: faraz9993
-          minimum-approvals: 1
-          issue-title: "Manual Approval Required"
-          issue-body: "Please approve or deny the deployment."
+    uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
