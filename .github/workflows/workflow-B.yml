@@ -1,0 +1,14 @@
+name: 2nd Workflow
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  Printing_a_message:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
+    steps:
+      - name: Printing a simple message   
+        run:
+          echo "This is Workflow-B"
