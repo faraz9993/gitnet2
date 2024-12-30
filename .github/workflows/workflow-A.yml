@@ -18,12 +18,17 @@ on:
         required: true
 
 jobs:
-  example-job:
+  Print_first_message:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo inputs and secrets
-        run: |
-          echo "Received input var: ${{ inputs.var }}"
-          echo "Received input req: ${{ inputs.req }}"
-          echo "Received secret pass: ${{ secrets.pass }}"
-          echo "Received secret req: ${{ secrets.req }}"
+      - name: Job-1
+        run: echo "This is a Job-1"
+  Print_second_message:
+    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
+    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
+    with:
+      var: ${{ inputs.var }}
+      req: ${{ inputs.req }}  
+    secrets:
+      pass: ${{ secrets.pass }}
+      req: ${{ secrets.req }}
