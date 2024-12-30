@@ -22,17 +22,9 @@ on:
 
 jobs:
   Print_first_message:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Job-1
-        run: echo "This is a Job-1"
+    uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
+
   Print_second_message:
-    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
+    uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
-    with:
-      var: ${{ inputs.var }}
-      req: ${{ inputs.req }}  
-    secrets:
-      pass: ${{ secrets.pass }}
-      req: ${{ secrets.req }}
-    run: echo "This is a Job-2"
+ 
