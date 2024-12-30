@@ -33,6 +33,9 @@ jobs:
   Permission_for_Mannual_WF:
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
+    steps:
+      - name: Printing a message
+        run: echo Asking for permission to run Manual Work flow 
 
   Manual_WF:
     needs: Permission_for_Mannual_WF
