@@ -6,9 +6,10 @@ on:
 
 jobs:
   Printing_a_message:
-    uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@v1
+    # uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@v1
+    runs-on: ubuntu-latest
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
     steps:
-      - name: Printing a simple message  
+      - name: Printing a simple message   
         run:
           echo "This is Workflow-A"
