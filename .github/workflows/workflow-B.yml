@@ -1,13 +1,27 @@
-name: 2nd Workflow
+name: Workflow B
 
 on:
-  push:
-    branches: ["main"]
+  workflow_call:
+    inputs:
+      var:
+        description: 'A regular input'
+        required: true
+        type: string
+      req:
+        description: 'Required input'
+        required: true
+        type: string
+    secrets:
+      pass:
+        required: true
+      req:
+        required: true
 
 jobs:
-  Printing_a_message:
+  example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Printing a simple message   
-        run:
-          echo "This is Workflow-B"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run a script
+        run: echo "This is a reusable workflow"
