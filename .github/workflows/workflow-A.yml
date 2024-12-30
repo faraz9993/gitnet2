@@ -5,8 +5,8 @@ on:
     branches: ["main"]
 
 jobs:
-  push_to_nexus:
-    name: Push to Nexus
+  Printing_a_message:
+    name: Printing a message
     runs-on: ubuntu-latest
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
     steps:
