@@ -1,0 +1,14 @@
+name: Dev Workflow
+
+on:
+  push:
+    branches: ["dev"]
+
+jobs:
+  Printing_a_message:
+    name: Printing a message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing a simple message  
+        run:
+          echo "This is Workflow-B"
