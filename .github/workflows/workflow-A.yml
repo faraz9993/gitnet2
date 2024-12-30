@@ -1,6 +1,9 @@
 name: Reusable Workflow with Inputs and Secrets
 
 on:
+  push:
+    branches:
+      - main 
   workflow_call:
     inputs:
       var:
