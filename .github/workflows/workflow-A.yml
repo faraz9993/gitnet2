@@ -38,5 +38,5 @@ jobs:
     secrets:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
-    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
+    # environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
  
