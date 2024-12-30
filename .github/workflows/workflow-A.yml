@@ -38,7 +38,7 @@ jobs:
         run: echo Asking for permission to run Manual Work flow 
 
   Manual_WF:
-    needs: Permission_for_Mannual_WF
+    needs: Permission_for_Mannual_WF 
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
     with:
       var: ${{ inputs.var }}
