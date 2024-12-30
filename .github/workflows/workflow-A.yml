@@ -30,20 +30,11 @@ jobs:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
 
-  # Manual_WF:
-  #   uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
-  #   environment:
-  #     name: Approval
-  #   with:
-  #     var: ${{ inputs.var }}
-  #     req: ${{ inputs.req }}
-  #   secrets:
-  #     pass: ${{ secrets.pass }}
-  #     req: ${{ secrets.req }}
-  manual-approval:
-    name: Manual Approval    
-    permissions:
-      issues: write
+  Permission_for_Mannual_WF:
+    environmant: ${{ github.ref_name == 'main' && 'Approval' || null }}
+
+  Manual_WF:
+    needs: Permission_for_Mannual_WF
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
     with:
       var: ${{ inputs.var }}
@@ -51,3 +42,4 @@ jobs:
     secrets:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
+
