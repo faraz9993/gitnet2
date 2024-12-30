@@ -21,10 +21,10 @@ on:
         required: true
 
 jobs:
-  Print_first_message:
+  Auto_WF:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
 
-  Print_second_message:
+  Manual_WF:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
  
