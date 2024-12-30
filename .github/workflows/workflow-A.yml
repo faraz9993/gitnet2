@@ -1,4 +1,4 @@
-name: Reusable Workflow with Inputs and Secrets
+name: Reusable Workflow
 
 on:
   push:
