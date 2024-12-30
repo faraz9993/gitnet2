@@ -3,14 +3,13 @@ name: Dev Workflow
 on:
   push:
     branches: ["main"]
-    tags: "*"
 
 jobs:
   push_to_nexus:
     name: Push to Nexus
     runs-on: ubuntu-latest
-    environment: ${{ startsWith(github.ref, 'refs/tags/') && 'Approval' || null }}
+    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
     steps:
-      - name: Printing a simple message
+      - name: Printing a simple message 
         run:
           echo "Hello World"
