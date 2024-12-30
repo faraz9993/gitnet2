@@ -26,5 +26,5 @@ jobs:
 
   Manual_WF:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
-    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
+    # environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
  
