@@ -1,20 +1,14 @@
-name: Workflow B
+name: Dev Workflow
 
 on:
-  workflow_run:
-    workflows: ["Workflow A"]
-    types:
-      - completed
+  push:
+    branches: ["Dev"]
 
 jobs:
-  use-variable:
+  Printing_a_message:
+    name: Printing a message
     runs-on: ubuntu-latest
-    needs: workflow-A 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Use variable from Workflow A
-        run: |
-          echo "The variable from Workflow A is: ${{ needs.workflow-A.outputs.my_var }}"
-
+      - name: Printing a simple message 
+        run:
+          echo "This is Workflow-B"
