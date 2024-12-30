@@ -10,6 +10,6 @@ jobs:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@v1
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
     steps:
-      - name: Printing a simple message 
+      - name: Printing a simple message  
         run:
           echo "This is Workflow-A"
