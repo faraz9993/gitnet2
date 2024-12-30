@@ -4,21 +4,6 @@ on:
   push:
     branches:
       - main 
-  workflow_call:
-    inputs:
-      var:
-        description: 'A regular input'
-        required: true
-        type: string
-      req:
-        description: 'Required input'
-        required: true
-        type: string
-    secrets:
-      pass:
-        required: true
-      req:
-        required: true
 
 jobs:
   Auto_WF:
@@ -30,20 +15,12 @@ jobs:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
 
-  Permission_for_Mannual_WF:
-    runs-on: ubuntu-latest
-    environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
-    steps:
-      - name: Printing a message
-        run: echo Asking for permission to run Manual Work flow 
-
   Manual_WF:
-    needs: Permission_for_Mannual_WF 
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
     with:
       var: ${{ inputs.var }}
       req: ${{ inputs.req }}
+      environment: ${{  github.ref_name == 'main' && 'Approval' || null }}
     secrets:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
-
