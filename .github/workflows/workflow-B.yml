@@ -9,6 +9,6 @@ jobs:
     name: Printing a message
     runs-on: ubuntu-latest
     steps:
-      - name: Printing a simple message 
+      - name: Printing a simple message  
         run:
           echo "This is Workflow-B"
