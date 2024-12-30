@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@v1
+    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
           
   call-workflow-passing-data:
     permissions:
