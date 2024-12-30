@@ -1,27 +1,25 @@
-name: Call a reusable workflow
+name: Example Workflow with 'with' and 'secrets'
 on:
   push:
     branches:
       - main
-  workflow_call:
-    inputs:
-      config-path:
-        required: true
-        type: string
-    secrets:
-      personal_access_token:
-        required: true
 
 jobs:
-  call-workflow:
-    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@v1
-
   call-workflow-passing-data:
     permissions:
       contents: read
       pull-requests: write
-    uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
-    with:
-      config-path: .github/labeler.yml
-    secrets:
-      token: ${{ secrets.GIHTUB_TOKEN }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run with both 'with' and 'secrets'
+        uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
+        with:
+          config-path: .github/labeler.yml
+          additional-param: some-value
+        secrets:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          another-secret: ${{ secrets.MY_SECRET_KEY }}
