@@ -32,11 +32,13 @@ jobs:
 
   Manual_WF:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
-    # environment: ${{ github.ref == 'refs/heads/main' && 'Approval' || null }}
     with:
       var: ${{ inputs.var }}
       req: ${{ inputs.req }}
     secrets:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
- 
+    environment:
+      name: Approval
+      url: ${{ steps.set_approval_url.outputs.url }}
+
