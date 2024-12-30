@@ -45,3 +45,9 @@ jobs:
     permissions:
       issues: write
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
+    with:
+      var: ${{ inputs.var }}
+      req: ${{ inputs.req }}
+    secrets:
+      pass: ${{ secrets.pass }}
+      req: ${{ secrets.req }}
