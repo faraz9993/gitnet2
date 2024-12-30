@@ -1,25 +1,29 @@
-name: Example Workflow with 'with' and 'secrets'
+name: Reusable Workflow with Inputs and Secrets
+
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      var:
+        description: 'A regular input'
+        required: true
+        type: string
+      req:
+        description: 'Required input'
+        required: true
+        type: string
+    secrets:
+      pass:
+        required: true
+      req:
+        required: true
 
 jobs:
-  call-workflow-passing-data:
-    permissions:
-      contents: read
-      pull-requests: write
+  example-job:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Run with both 'with' and 'secrets'
-        uses: faraz9993/gitnet2/.github/workflows/workflow-A.yml@main
-        with:
-          config-path: .github/labeler.yml
-          additional-param: some-value
-        secrets:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          another-secret: ${{ secrets.MY_SECRET_KEY }}
+      - name: Echo inputs and secrets
+        run: |
+          echo "Received input var: ${{ inputs.var }}"
+          echo "Received input req: ${{ inputs.req }}"
+          echo "Received secret pass: ${{ secrets.pass }}"
+          echo "Received secret req: ${{ secrets.req }}"
