@@ -32,7 +32,8 @@ jobs:
 
   Manual_WF:
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@main
-    environment: ${{ github.ref == 'refs/heads/main' && 'Approval' || null }}
+    environment:
+      name: Approval
     with:
       var: ${{ inputs.var }}
       req: ${{ inputs.req }}
