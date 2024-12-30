@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 jobs:
-  Printing_a_message:
+  Printing_third_message:
     runs-on: ubuntu-latest
     steps:
       - name: Printing a simple message   
