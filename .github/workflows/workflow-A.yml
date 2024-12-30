@@ -1,4 +1,4 @@
-name: Main Workflow
+name: 1st Main Workflow
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   Printing_a_message:
-    
+
     uses: faraz9993/gitnet2/.github/workflows/workflow-B.yml@v1
     environment: ${{ github.ref_name == 'main' && 'Approval' || null }}
     steps:

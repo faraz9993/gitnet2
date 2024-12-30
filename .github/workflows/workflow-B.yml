@@ -1,8 +1,8 @@
-name: Dev Workflow
+name: 2nd Main Workflow
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["Main"]
 
 jobs:
   Printing_a_message:
