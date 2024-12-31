@@ -20,7 +20,8 @@ jobs:
     with:
       var: ${{ inputs.var }}
       req: ${{ inputs.req }}
-      environment: ${{  github.ref_name == 'main' && 'Approval' || null }}
+      environment: Approval
     secrets:
       pass: ${{ secrets.pass }}
       req: ${{ secrets.req }}
+    

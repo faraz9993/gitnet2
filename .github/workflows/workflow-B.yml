@@ -11,6 +11,10 @@ on:
         description: 'Required input'
         required: true
         type: string
+      environment:
+        required: false
+        type: string
+
     secrets:
       pass:
         required: true
@@ -20,6 +24,7 @@ on:
 jobs:
   example_job:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
